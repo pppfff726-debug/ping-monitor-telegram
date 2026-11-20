@@ -1,0 +1,31 @@
+# 🛡️ NETBASICS PRO v1 — Scanner Réseau, Audit Sécurité & Ping Monitor Telegram
+
+> ⚠️ **Notice légale :** Cet outil est conçu uniquement à des fins éducatives et d'administration sur vos propres réseaux ou laboratoires autorisés.
+
+![Aperçu des alertes Telegram](screenshots/telegram_alert.png)
+
+## 📋 Description
+**NETBASICS PRO v1** est un outil CLI tout-en-un développé en Python permettant de découvrir automatiquement les appareils connectés sur un réseau Wi-Fi (Ping Sweep + table ARP), d'auditer leur niveau de confiance et leurs ports critiques, de mesurer les performances Wi-Fi (latence, débit), et d'envoyer des **alertes en temps réel sur Telegram** en cas de panne ou de rétablissement d'un équipement.
+
+## ✨ Fonctionnalités
+- **[1] Découverte Réseau (Ping Sweep) :** Détection automatique du sous-réseau Wi-Fi actuel (`/24`), scan multithreadé rapide (~4s), résolution des noms d'hôtes et récupération des adresses MAC.
+- **[2] Audit Sécurité & Trusted Devices :** Vérification des appareils de confiance (`trusted_devices.json`) et scan parallèle des ports à risque / backdoors (`21`, `23`, `445`, `3389`, `4444`, `5555`, `31337`...).
+- **[3] Diagnostic Wi-Fi & Ping Monitor continu :**
+  - Informations d'interface Wi-Fi, test de latence ICMP et estimation du débit descendant (Mbps).
+  - Surveillance continue avec **3 tentatives consécutives (`retries=3`)** avant de déclarer un hôte `DOWN` (zéro fausse alerte).
+  - Notifications instantanées via **Telegram Bot API** (`ALERT` et `RECOVERED` avec calcul exact de la durée de panne).
+  - Journalisation rotative dans `monitor.log` (`RotatingFileHandler`).
+
+## ⚙️ Prérequis
+- Python **3.10** ou supérieur
+- Un bot Telegram créé via `@BotFather` (Token + Chat ID)
+- Compatible **macOS**, **Windows** et **Linux**
+
+## 🚀 Installation
+```bash
+git clone [https://github.com/pppfff726-debug/ping-monitor-telegram.git](https://github.com/pppfff726-debug/ping-monitor-telegram.git)
+cd ping-monitor-telegram
+python3 -m venv venv
+source venv/bin/activate  # Sur Windows : venv\Scripts\activate
+pip install -r requirements.txt
+
