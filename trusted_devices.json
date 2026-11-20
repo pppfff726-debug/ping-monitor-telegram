@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Appareil inconnu",
+    "ip": "192.168.1.1",
+    "mac": "N/A (Local/Masqué)"
+  },
+  {
+    "name": "Appareil inconnu",
+    "ip": "192.168.1.22",
+    "mac": "N/A (Local/Masqué)"
+  }
+]
